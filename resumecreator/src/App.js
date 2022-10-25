@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Information from "./components/Information"; 
 import Education from "./components/Education";
-
+import Work from "./components/Work";
 
 class App extends Component {
 
@@ -10,7 +10,8 @@ class App extends Component {
 
     this.state = {
       information: {},
-      education: {}
+      education: {},
+      work: {}
     };
   }
 
@@ -23,6 +24,7 @@ class App extends Component {
     );
     console.log(this.state.information);
     console.log(this.state.education);
+    console.log(this.state.work);
   }
 
   render() {
@@ -30,6 +32,7 @@ class App extends Component {
       <div>
         <Information handleSubmit={this.handleSubmit} />
         <Education handleSubmit={this.handleSubmit} />
+        <Work handleSubmit={this.handleSubmit} />
       </div>
     )
   }
