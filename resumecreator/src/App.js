@@ -1,18 +1,18 @@
 import React, { Component } from "react";
-import Information from "./components/Information"
+import Information from "./components/Information"; 
+import Education from "./components/Education";
+
 
 class App extends Component {
-
-
 
   constructor() {
     super();
 
     this.state = {
-      information: {}
+      information: {},
+      education: {}
     };
   }
-
 
   handleSubmit = (e, submitData) => {
     e.preventDefault();
@@ -21,12 +21,15 @@ class App extends Component {
       [targetName] : submitData
      }
     );
-    }
+    console.log(this.state.information);
+    console.log(this.state.education);
+  }
 
   render() {
     return (
       <div>
         <Information handleSubmit={this.handleSubmit} />
+        <Education handleSubmit={this.handleSubmit} />
       </div>
     )
   }
