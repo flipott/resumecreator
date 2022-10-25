@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Information from "./components/Information"; 
 import Education from "./components/Education";
 import Work from "./components/Work";
+import Generate from "./components/Generate";
 
 class App extends Component {
 
@@ -22,9 +23,6 @@ class App extends Component {
       [targetName] : submitData
      }
     );
-    console.log(this.state.information);
-    console.log(this.state.education);
-    console.log(this.state.work);
   }
 
   render() {
@@ -33,11 +31,11 @@ class App extends Component {
         <Information handleSubmit={this.handleSubmit} />
         <Education handleSubmit={this.handleSubmit} />
         <Work handleSubmit={this.handleSubmit} />
+        <Generate information={this.state.information} education={this.state.education} work={this.state.work}/>
       </div>
     )
   }
 }
-
 
 export default App;
 
