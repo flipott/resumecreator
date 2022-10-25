@@ -5,11 +5,11 @@ class Education extends Component {
         super();
 
         this.state = {
-            infoArray: {
-                firstName: '',
-                lastName: '',
-                email: '',
-                phone: '',
+            eduArray: {
+                school: '',
+                study: '',
+                startDate: '',
+                endDate: '',
             },
             disabled: false,
             editable: true,
@@ -22,34 +22,33 @@ class Education extends Component {
         const value = e.target.value;
 
         this.setState(prevState => ({
-            infoArray: {
-                ...prevState.infoArray,
+            eduArray: {
+                ...prevState.eduArray,
                 [name] : value
             }
         }))
     }
 
     submitHandler = (e) => {
-        this.props.handleSubmit(e, this.state.infoArray);
+        this.props.handleSubmit(e, this.state.eduArray);
         this.setState(prevState => ({
             disabled: !prevState.disabled,
             editable: !prevState.editable
         }))
-        console.log(this.state.disabled);
     }
 
     render() {
         return (
             <div>
-                <form onSubmit={(e) => this.submitHandler(e)} id="information">
-                    <label htmlFor="firstName">First Name</label>
-                    <input required type="text" name="firstName" id="firstName" onChange={this.handleChange} value={this.state.firstName} disabled={this.state.disabled}/>
-                    <label htmlFor="lastName">Last Name</label>
-                    <input required type="text" name="lastName" id="lastName" onChange={this.handleChange} value={this.state.lastName} disabled={this.state.disabled} />
-                    <label htmlFor="email">Email</label>
-                    <input required type="email" name="email" id="email" onChange={this.handleChange} value={this.state.email} disabled={this.state.disabled}/>
-                    <label htmlFor="phone">Phone Number</label>
-                    <input required type="tel" name="phone" id="phone" onChange={this.handleChange} value={this.state.phone} disabled={this.state.disabled} />
+                <form onSubmit={(e) => this.submitHandler(e)} id="education">
+                    <label htmlFor="school">School Name</label>
+                    <input required type="text" name="school" id="school" onChange={this.handleChange} value={this.state.eduArray.school} disabled={this.state.disabled}/>
+                    <label htmlFor="study">Area of Study</label>
+                    <input required type="text" name="study" id="study" onChange={this.handleChange} value={this.state.eduArray.study} disabled={this.state.disabled}/>
+                    <label htmlFor="startDate">Start Date</label>
+                    <input required type="date" name="startDate" id="startDate" onChange={this.handleChange} value={this.state.eduArray.startDate} disabled={this.state.disabled}/>
+                    <label htmlFor="endDate">End Date</label>
+                    <input required type="date" name="endDate" id="endDate" onChange={this.handleChange} value={this.state.eduArray.endDate} disabled={this.state.disabled}/>
                     <button type="submit" disabled={this.state.disabled}>Submit</button>
                     <button disabled={this.state.editable}>Edit</button>
                 </form>
