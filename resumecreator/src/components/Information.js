@@ -35,7 +35,6 @@ class Information extends Component {
             disabled: !prevState.disabled,
             editable: !prevState.editable
         }))
-        console.log(this.state.disabled);
     }
 
     render() {
@@ -43,13 +42,13 @@ class Information extends Component {
             <div>
                 <form onSubmit={(e) => this.submitHandler(e)} id="information">
                     <label htmlFor="firstName">First Name</label>
-                    <input required type="text" name="firstName" id="firstName" onChange={this.handleChange} value={this.state.firstName} disabled={this.state.disabled}/>
+                    <input required type="text" name="firstName" id="firstName" onChange={this.handleChange} value={this.state.infoArray.firstName} disabled={this.state.disabled}/>
                     <label htmlFor="lastName">Last Name</label>
-                    <input required type="text" name="lastName" id="lastName" onChange={this.handleChange} value={this.state.lastName} disabled={this.state.disabled} />
+                    <input required type="text" name="lastName" id="lastName" onChange={this.handleChange} value={this.state.infoArray.lastName} disabled={this.state.disabled} />
                     <label htmlFor="email">Email</label>
-                    <input required type="email" name="email" id="email" onChange={this.handleChange} value={this.state.email} disabled={this.state.disabled}/>
+                    <input required type="email" name="email" id="email" onChange={this.handleChange} value={this.state.infoArray.email} disabled={this.state.disabled}/>
                     <label htmlFor="phone">Phone Number</label>
-                    <input required type="tel" name="phone" id="phone" onChange={this.handleChange} value={this.state.phone} disabled={this.state.disabled} />
+                    <input required type="tel" name="phone" id="phone" onChange={this.handleChange} value={this.state.infoArray.phone} disabled={this.state.disabled} />
                     <button type="submit" disabled={this.state.disabled}>Submit</button>
                     <button disabled={this.state.editable}>Edit</button>
                 </form>
