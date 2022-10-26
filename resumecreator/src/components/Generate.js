@@ -9,7 +9,6 @@ class Generate extends Component {
 
     clickHandler = () => {
         const {information, education, work} = this.props;
-        console.log(information);
     }
 
     render() {
@@ -17,9 +16,9 @@ class Generate extends Component {
         return (
             <div>
                 <button onClick={this.clickHandler}
-                        disabled={Object.keys(information).length === 0 || 
-                                  Object.keys(education).length  === 0 ||
-                                  Object.keys(work).length === 0}>
+                        disabled={!Object.keys(information).length|| 
+                                  !Object.keys(education).length ||
+                                  !Object.keys(work).length}>
                     Generate Resume</button>
             </div>
         )

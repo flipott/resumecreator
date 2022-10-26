@@ -9,17 +9,17 @@ class Education extends Component {
                 school: '',
                 study: '',
                 startDate: '',
-                endDate: '',
-            },
+                endDate: ''},
             disabled: false,
             editable: true,
-
+            formCount: 1,
         };
     }
 
     handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
+        const id = 0;
 
         this.setState(prevState => ({
             eduArray: {
