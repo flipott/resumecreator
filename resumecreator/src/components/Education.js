@@ -30,9 +30,7 @@ class Education extends Component {
 
     submitHandler = (e) => {
         this.props.handleSubmit(e, this.state.eduArray);
-        this.setState(prevState => ({
-            disabled: true,
-        }))
+        this.setState({disabled: true})
     }
 
     delete = (index) => {
@@ -46,9 +44,9 @@ class Education extends Component {
     }
 
     generateInputs = () => {
-        const test = [];
+        const arr = [];
         for (let i=0; i<this.state.formCount; i++) {
-            test.push(
+            arr.push(
                 <div key={i}>
                     <label htmlFor="school">School Name</label>
                     <input required type="text" name="school" id={i} onChange={this.handleChange} value={this.state.eduArray[i]['school']} disabled={this.state.disabled}/>
@@ -63,7 +61,7 @@ class Education extends Component {
                 </div>
             )
         }
-        return test;
+        return arr;
     }
 
     addExp = () => {
@@ -83,9 +81,7 @@ class Education extends Component {
     }
 
     edit = () => {
-        this.setState(prevState => ({
-            disabled: false
-        }))
+        this.setState({disabled: false});
     }
 
     render() {
