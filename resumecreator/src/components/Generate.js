@@ -9,6 +9,7 @@ class Generate extends Component {
 
     clickHandler = () => {
         const {information, education, work} = this.props;
+        console.log(education);
     }
 
     render() {
