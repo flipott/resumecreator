@@ -11,9 +11,7 @@ class Information extends Component {
                 email: '',
                 phone: '',
             },
-            disabled: false,
-            editable: true,
-
+            disabled: false
         };
     }
 
@@ -37,6 +35,10 @@ class Information extends Component {
         }))
     }
 
+    edit = () => {
+        this.setState({disabled: false});
+    }
+
     render() {
         return (
             <div>
@@ -50,7 +52,7 @@ class Information extends Component {
                     <label htmlFor="phone">Phone Number</label>
                     <input required type="tel" name="phone" id="phone" onChange={this.handleChange} value={this.state.infoArray.phone} disabled={this.state.disabled} />
                     <button type="submit" disabled={this.state.disabled}>Submit</button>
-                    <button disabled={this.state.editable} type="button">Edit</button>
+                    <button disabled={!this.state.disabled} onClick={this.edit} type="button">Edit</button>
                 </form>
             </div>
         )
