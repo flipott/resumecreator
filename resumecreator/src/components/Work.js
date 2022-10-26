@@ -5,55 +5,98 @@ class Work extends Component {
         super();
 
         this.state = {
-            workArray: {
+            workArray: [{
                 company: '',
                 position: '',
                 duties: '',
                 startDate: '',
-                endDate: '',
-            },
+                endDate: ''}],
             disabled: false,
-            editable: true,
-
+            formCount: 1
         };
     }
 
     handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
+        const id = e.target.id;
 
         this.setState(prevState => ({
-            workArray: {
-                ...prevState.workArray,
-                [name] : value
-            }
+            workArray: prevState.workArray.map((arr, ind) => {
+                if (ind == id) return {...arr, [name] : value}
+                return arr
+            })
         }))
     }
 
     submitHandler = (e) => {
         this.props.handleSubmit(e, this.state.workArray);
+        this.setState({disabled: true})
+    }
+
+    delete = (index) => {
+        console.log(index);
         this.setState(prevState => ({
-            disabled: !prevState.disabled,
-            editable: !prevState.editable
+            workArray: prevState.workArray.filter((arr, ind) => {
+                if (ind != index) return arr
+            }),
+            formCount: prevState.formCount - 1,
+            disabled: false
         }))
+    }
+
+    generateInputs = () => {
+        const arr = [];
+        for (let i=0; i<this.state.formCount; i++) {
+            arr.push(
+                <div key={i}>
+                    <label htmlFor="company">Company</label>
+                    <input required type="text" name="company" id={i} onChange={this.handleChange} value={this.state.workArray[i]['company']} disabled={this.state.disabled}/>
+                    <label htmlFor="position">Position</label>
+                    <input required type="text" name="position" id={i} onChange={this.handleChange} value={this.state.workArray[i]['position']} disabled={this.state.disabled}/>
+                    <label htmlFor="duties">Job Description</label>
+                    <textarea required name="duties" id={i} onChange={this.handleChange} value={this.state.workArray[i]['duties']} disabled={this.state.disabled}/>        
+                    <label htmlFor="startDate">Start Date</label>
+                    <input required type="date" name="startDate" id={i} onChange={this.handleChange} value={this.state.workArray[i]['startDate']} disabled={this.state.disabled}/>
+                    <label htmlFor="endDate">End Date</label>
+                    <input required type="date" name="endDate" id={i} onChange={this.handleChange} value={this.state.workArray[i]['endDate']} disabled={this.state.disabled}/>
+                    {this.state.formCount > 1 && (i > 0) ? <button id={i} disabled={this.state.disabled} type="button" onClick={() => this.delete(i)}>x</button> : ''}      
+                    <br></br>
+                </div>
+            )
+        }
+        return arr;
+    }
+
+    addExp = () => {
+        if (this.state.formCount === 5) {
+            console.log("You can only have a mximum of 5 entries.");
+            return false;
+        }
+        this.setState(prevState => ({
+            formCount: prevState.formCount +1,
+            workArray: [...prevState.workArray, {
+                company: '',
+                position: '',
+                duties: '',
+                startDate: '',
+                endDate: ''}],
+            disabled: false
+        }))
+    }
+
+    edit = () => {
+        this.setState({disabled: false})
     }
 
     render() {
         return (
             <div>
                 <form onSubmit={(e) => this.submitHandler(e)} id="work">
-                    <label htmlFor="company">Company</label>
-                    <input required type="text" name="company" id="company" onChange={this.handleChange} value={this.state.workArray.company} disabled={this.state.disabled}/>
-                    <label htmlFor="position">Position</label>
-                    <input required type="text" name="position" id="position" onChange={this.handleChange} value={this.state.workArray.position} disabled={this.state.disabled}/>
-                    <label htmlFor="duties">Job Description</label>
-                    <textarea required name="duties" id="duties" onChange={this.handleChange} value={this.state.workArray.duties} disabled={this.state.disabled}/>        
-                    <label htmlFor="startDate">Start Date</label>
-                    <input required type="date" name="startDate" id="startDate" onChange={this.handleChange} value={this.state.workArray.startDate} disabled={this.state.disabled}/>
-                    <label htmlFor="endDate">End Date</label>
-                    <input required type="date" name="endDate" id="endDate" onChange={this.handleChange} value={this.state.workArray.endDate} disabled={this.state.disabled}/>
+                    {this.generateInputs()}
+                    <button type="button" onClick={this.addExp}>+</button>
                     <button type="submit" disabled={this.state.disabled}>Submit</button>
-                    <button disabled={this.state.editable}>Edit</button>
+                    <button disabled={!this.state.disabled} onClick={this.edit} type="button">Edit</button>
                 </form>
             </div>
         )
