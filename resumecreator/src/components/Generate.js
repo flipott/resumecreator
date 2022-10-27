@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 class Generate extends Component {
     constructor() {
         super();
@@ -22,7 +23,28 @@ class Generate extends Component {
                                   !Object.keys(education).length ||
                                   !Object.keys(work).length}>
                     Generate Resume</button>
-                {this.state.displayResume && <h1>{information.firstName}</h1>}
+                {this.state.displayResume && 
+                <div className="generated">
+                    <div className="header">
+                        <h1>{information.firstName} {information.lastName}</h1>
+                        <h2>{information.phone} {information.email}</h2>
+                    </div>
+                    <div className="education">
+                        <h1>Education History</h1>
+                        {education.map(entry => {
+                            return (
+                            <>
+                                <p>{entry.school}</p>
+                                <p>{entry.study}</p>
+                                <p>{entry.startDate}</p>
+                                <p>{entry.endDate}</p>
+                            </>
+                            )
+                        })}
+                    </div>
+
+                </div>
+                }
             </div>
         )
     }
