@@ -14,7 +14,7 @@ class Information extends Component {
                 city: '',
                 state: '',
                 zip: '',
-                goal: ''
+                objective: ''
             },
             disabled: false
         };
@@ -116,8 +116,8 @@ class Information extends Component {
                     </select>
                     <label htmlFor="zip">Zip Code</label>
                     <input required type="text" name="zip" id="zip" onChange={this.handleChange} value={this.state.infoArray.zip} disabled={this.state.disabled} />
-                    <label htmlFor="goal">Goal / Mission Statement</label>
-                    <textarea required name="goal" id="goal" onChange={this.handleChange} value={this.state.infoArray.goal} disabled={this.state.disabled} />
+                    <label htmlFor="objective">Objective</label>
+                    <textarea required name="objective" id="objective" onChange={this.handleChange} value={this.state.infoArray.objective} disabled={this.state.disabled} />
                     <button type="submit" disabled={this.state.disabled}>Submit</button>
                     <button disabled={!this.state.disabled} onClick={this.edit} type="button">Edit</button>
                 </form>
