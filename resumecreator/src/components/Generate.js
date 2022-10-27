@@ -38,12 +38,12 @@ class Generate extends Component {
                         {education.map(entry => {
                             return (
                             <>
+                                <p>{entry.startYear} - {entry.endYear}</p>
                                 <p>{entry.school}</p>
+                                <p>{entry.schoolCity}, {entry.schoolState}</p>
                                 <p>{entry.study}</p>
-                                <p>{entry.startDate}</p>
-                                <p>{entry.endDate}</p>
                             </>
-                            )   
+                            )
                         })}
                     </div>
                     <div className="work">
@@ -51,13 +51,12 @@ class Generate extends Component {
                         {work.map(entry => {
                             return (
                             <>
+                                <p>{entry.startDate} - {entry.endDate}</p>
                                 <p>{entry.company}</p>
-                                <p>{entry.duties}</p>
                                 <p>{entry.position}</p>
-                                <p>{entry.startDate}</p>
-                                <p>{entry.endDate}</p>
+                                <p>{entry.duties}</p>
                             </>
-                            )   
+                            )
                         })}
                     </div>
                 </div>
