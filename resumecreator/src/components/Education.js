@@ -10,6 +10,7 @@ class Education extends Component {
                 schoolCity: '',
                 schoolState: '',
                 study: '',
+                degree: '',
                 startYear: '',
                 endYear: ''}],
             disabled: false,
@@ -108,8 +109,10 @@ class Education extends Component {
                         <option value="WI">Wisconsin</option>
                         <option value="WY">Wyoming</option>
                     </select>
-                    <label htmlFor="study">Degree/Area of Study</label>
+                    <label htmlFor="study">Area of Study</label>
                     <input required type="text" name="study" id={i} onChange={this.handleChange} value={this.state.eduArray[i]['study']} disabled={this.state.disabled}/>
+                    <label htmlFor="degree">Degree</label>
+                    <input required type="text" name="degree" id={i} onChange={this.handleChange} value={this.state.eduArray[i]['degree']} disabled={this.state.disabled}/>
                     <label htmlFor="startYear">Start Year</label>
                     <select required name="startYear" id={i} onChange={this.handleChange} value={this.state.eduArray[i]['startYear']} disabled={this.state.disabled}>
                         <option value="1940">1940</option>

@@ -42,12 +42,13 @@ class Generate extends Component {
                                 <p>{entry.school}</p>
                                 <p>{entry.schoolCity}, {entry.schoolState}</p>
                                 <p>{entry.study}</p>
+                                <p>{entry.degree}</p>
                             </>
                             )
                         })}
                     </div>
                     <div className="work">
-                        <p className="title">Work</p>
+                        <p className="title">Experience</p>
                         {work.map(entry => {
                             return (
                             <>
