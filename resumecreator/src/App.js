@@ -23,7 +23,7 @@ class App extends Component {
       [targetName] : submitData
      }
     );
-    console.log(this.state.education);
+    console.log(this.state.information);
   }
 
   render() {
