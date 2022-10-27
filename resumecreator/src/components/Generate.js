@@ -26,11 +26,15 @@ class Generate extends Component {
                 {this.state.displayResume && 
                 <div className="generated">
                     <div className="header">
-                        <h1>{information.firstName} {information.lastName}</h1>
-                        <h2>{information.phone} {information.email}</h2>
+                        <p className="name">{information.firstName} {information.lastName}</p>
+                        <p className="information">{information.street}, {information.city}, {information.state} {information.zip} | {information.phone} | {information.email}</p>
+                    </div>
+                    <div className="objective">
+                        <p className="title">Objective</p>
+                        <p className="objective">{information.objective}</p>
                     </div>
                     <div className="education">
-                        <h1>Education History</h1>
+                        <p className="title">Education</p>
                         {education.map(entry => {
                             return (
                             <>
@@ -39,10 +43,23 @@ class Generate extends Component {
                                 <p>{entry.startDate}</p>
                                 <p>{entry.endDate}</p>
                             </>
-                            )
+                            )   
                         })}
                     </div>
-
+                    <div className="work">
+                        <p className="title">Work</p>
+                        {work.map(entry => {
+                            return (
+                            <>
+                                <p>{entry.company}</p>
+                                <p>{entry.duties}</p>
+                                <p>{entry.position}</p>
+                                <p>{entry.startDate}</p>
+                                <p>{entry.endDate}</p>
+                            </>
+                            )   
+                        })}
+                    </div>
                 </div>
                 }
             </div>
