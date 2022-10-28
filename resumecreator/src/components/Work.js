@@ -91,7 +91,8 @@ class Work extends Component {
 
     render() {
         return (
-            <div>
+            <div className="form-container">
+                <h2>Work History</h2>
                 <form onSubmit={(e) => this.submitHandler(e)} id="work">
                     {this.generateInputs()}
                     <button type="button" onClick={this.addExp}>+</button>

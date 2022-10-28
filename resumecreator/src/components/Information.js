@@ -46,7 +46,8 @@ class Information extends Component {
 
     render() {
         return (
-            <div>
+            <div className="form-container">
+                <h2>Personal Information</h2>
                 <form onSubmit={(e) => this.submitHandler(e)} id="information">
                     <label htmlFor="firstName">First Name</label>
                     <input required type="text" name="firstName" id="firstName" onChange={this.handleChange} value={this.state.infoArray.firstName} disabled={this.state.disabled}/>

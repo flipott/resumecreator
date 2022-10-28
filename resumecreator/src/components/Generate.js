@@ -10,8 +10,11 @@ class Generate extends Component {
     }
 
     clickHandler = () => {
-        const {information, education, work} = this.props;
         this.setState({displayResume: true});
+    }
+
+    hideResume = () => {
+        this.setState({displayResume: false});
     }
 
     render() {
@@ -23,6 +26,7 @@ class Generate extends Component {
                                   !Object.keys(education).length ||
                                   !Object.keys(work).length}>
                     Generate Resume</button>
+                {this.state.displayResume && <button onClick={this.hideResume}>x</button>}
                 {this.state.displayResume && 
                 <div className="generated">
                     <div className="header">
@@ -38,11 +42,11 @@ class Generate extends Component {
                         {education.map(entry => {
                             return (
                             <>
-                                <p>{entry.startYear} - {entry.endYear}</p>
-                                <p>{entry.school}</p>
-                                <p>{entry.schoolCity}, {entry.schoolState}</p>
-                                <p>{entry.study}</p>
-                                <p>{entry.degree}</p>
+                                <p className="dates">{entry.startYear} - {entry.endYear}</p>
+                                <p className="bold">{entry.school}</p>
+                                <p className="body-text">{entry.schoolCity}, {entry.schoolState}</p>
+                                <p className="body-text">{entry.study}</p>
+                                <p className="body-text">{entry.degree}</p>
                             </>
                             )
                         })}
@@ -52,10 +56,10 @@ class Generate extends Component {
                         {work.map(entry => {
                             return (
                             <>
-                                <p>{entry.startDate} - {entry.endDate}</p>
-                                <p>{entry.company}</p>
-                                <p>{entry.position}</p>
-                                <p>{entry.duties}</p>
+                                <p className="dates">{entry.startDate} - {entry.endDate}</p>
+                                <p className="bold">{entry.company}</p>
+                                <p className="body-text">{entry.position}</p>
+                                <p className="body-text">{entry.duties}</p>
                             </>
                             )
                         })}

@@ -455,10 +455,13 @@ class Education extends Component {
         this.setState(prevState => ({
            formCount: prevState.formCount + 1,
            eduArray: [...prevState.eduArray, {
-            school: '',
-            study: '',
-            startYear: '',
-            endYear: ''}],
+                school: '',
+                schoolCity: '',
+                schoolState: '',
+                study: '',
+                degree: '',
+                startYear: '',
+                endYear: ''}],
             disabled: false
         }))
     }
@@ -469,7 +472,8 @@ class Education extends Component {
 
     render() {
         return (
-            <div>
+            <div className="form-container">
+                <h2>Education History</h2>
                 <form onSubmit={(e) => this.submitHandler(e)} id="education">
                     {this.generateInputs()}
                     <button type="button" onClick={this.addExp}>+</button>
