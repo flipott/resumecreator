@@ -22,6 +22,7 @@ class Generate extends Component {
         return (
             <div>
                 <button onClick={this.clickHandler}
+                        className="generate-btn"
                         disabled={!Object.keys(information).length|| 
                                   !Object.keys(education).length ||
                                   !Object.keys(work).length}>

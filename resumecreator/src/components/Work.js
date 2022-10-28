@@ -49,20 +49,32 @@ class Work extends Component {
         const arr = [];
         for (let i=0; i<this.state.formCount; i++) {
             arr.push(
-                <div key={i}>
-                    <label htmlFor="company">Company</label>
-                    <input required type="text" name="company" id={i} onChange={this.handleChange} value={this.state.workArray[i]['company']} disabled={this.state.disabled}/>
-                    <label htmlFor="position">Position</label>
-                    <input required type="text" name="position" id={i} onChange={this.handleChange} value={this.state.workArray[i]['position']} disabled={this.state.disabled}/>
+                <fieldset>
+                    <legend>Work {i+1}</legend>
+                    <div>
+                        <label htmlFor="company">Company</label>
+                        <input required type="text" name="company" id={i} onChange={this.handleChange} value={this.state.workArray[i]['company']} disabled={this.state.disabled}/>
+                    </div>
+                    <div>
+                        <label htmlFor="position">Position</label>
+                        <input required type="text" name="position" id={i} onChange={this.handleChange} value={this.state.workArray[i]['position']} disabled={this.state.disabled}/>
+                    </div>
+                    <div>
                     <label htmlFor="duties">Job Description</label>
                     <textarea required name="duties" id={i} onChange={this.handleChange} value={this.state.workArray[i]['duties']} disabled={this.state.disabled}/>        
-                    <label htmlFor="startDate">Start Date</label>
-                    <input required type="date" name="startDate" id={i} onChange={this.handleChange} value={this.state.workArray[i]['startDate']} disabled={this.state.disabled}/>
-                    <label htmlFor="endDate">End Date</label>
-                    <input required type="date" name="endDate" id={i} onChange={this.handleChange} value={this.state.workArray[i]['endDate']} disabled={this.state.disabled}/>
-                    {this.state.formCount > 1 && (i > 0) ? <button id={i} disabled={this.state.disabled} type="button" onClick={() => this.delete(i)}>x</button> : ''}      
-                    <br></br>
-                </div>
+                    </div>
+                    <div className="date-container">
+                        <div>
+                            <label htmlFor="startDate">Start Date</label>
+                            <input required type="date" name="startDate" id={i} onChange={this.handleChange} value={this.state.workArray[i]['startDate']} disabled={this.state.disabled}/>
+                        </div>
+                        <div>
+                            <label htmlFor="endDate">End Date</label>
+                            <input required type="date" name="endDate" id={i} onChange={this.handleChange} value={this.state.workArray[i]['endDate']} disabled={this.state.disabled}/>
+                        </div>
+                    </div>
+                    {this.state.formCount > 1 && (i > 0) ? <button id={i} className="removeExp" disabled={this.state.disabled} type="button" onClick={() => this.delete(i)}>Remove Experience</button> : ''}      
+                </fieldset>
             )
         }
         return arr;
@@ -95,9 +107,12 @@ class Work extends Component {
                 <h2>Work History</h2>
                 <form onSubmit={(e) => this.submitHandler(e)} id="work">
                     {this.generateInputs()}
-                    <button type="button" onClick={this.addExp}>+</button>
-                    <button type="submit" disabled={this.state.disabled}>Submit</button>
-                    <button disabled={!this.state.disabled} onClick={this.edit} type="button">Edit</button>
+                    <div className="submit-row">
+                        <button type="button" className="left" disabled={this.state.disabled} onClick={this.addExp}>Add Experience</button>
+                        <button type="submit" disabled={this.state.disabled}>Save</button>
+                        <button disabled={!this.state.disabled} onClick={this.edit} type="button">Edit</button>
+                        <div className="right"></div>
+                    </div>
                 </form>
             </div>
         )
