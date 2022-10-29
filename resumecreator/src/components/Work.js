@@ -108,7 +108,7 @@ class Work extends Component {
                 <form onSubmit={(e) => this.submitHandler(e)} id="work">
                     {this.generateInputs()}
                     <div className="submit-row">
-                        <button type="button" className="left" disabled={this.state.disabled} onClick={this.addExp}>Add Experience</button>
+                        <button id="add-btn" type="button" visibility="hidden" style={{visibility: this.state.formCount < 3 ? 'visible' : 'hidden' }} disabled={this.state.disabled} className="left" onClick={this.addExp}>Add Experience</button>
                         <button type="submit" disabled={this.state.disabled}>Save</button>
                         <button disabled={!this.state.disabled} onClick={this.edit} type="button">Edit</button>
                         <div className="right"></div>
