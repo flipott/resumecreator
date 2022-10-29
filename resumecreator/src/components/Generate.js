@@ -17,6 +17,10 @@ class Generate extends Component {
         this.setState({displayResume: false});
     }
 
+    print = () => {
+        window.print();
+    }
+
     render() {
         const {information, education, work} = this.props;
         return (
@@ -31,7 +35,7 @@ class Generate extends Component {
                 <div className="generated">
                     <div className="modal">
                         <div className="modal-top">
-                            <button>Print</button>
+                            <button onClick={this.print}>Print</button>
                             <button onClick={this.hideResume}>x</button>
                         </div>
                         <div className="printable">

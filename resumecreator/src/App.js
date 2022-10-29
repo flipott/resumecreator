@@ -31,11 +31,11 @@ class App extends Component {
       <div className="main">
         <div className="title-container">
           <h1>Resume Creator</h1>
-          <h3>
+        </div>
+        <h3>
             Fill and submit all three sections and then
             click the "Generate" button at the bottom of the page.
           </h3>
-        </div>
         <Information handleSubmit={this.handleSubmit} />
         <Education handleSubmit={this.handleSubmit} />
         <Work handleSubmit={this.handleSubmit} />

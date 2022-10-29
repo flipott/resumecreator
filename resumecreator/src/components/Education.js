@@ -54,15 +54,16 @@ class Education extends Component {
                     <legend>Education {i+1}</legend>
                     <div>
                         <label htmlFor="school">School Name</label>
-                        <input required type="text" name="school" id={i} onChange={this.handleChange} value={this.state.eduArray[i]['school']} disabled={this.state.disabled}/>
+                        <input required type="text" name="school" id={i} maxLength="30" onChange={this.handleChange} value={this.state.eduArray[i]['school']} disabled={this.state.disabled}/>
                     </div>
                     <div>
                         <label htmlFor="school">School City</label>
-                        <input required type="text" name="schoolCity" id={i} onChange={this.handleChange} value={this.state.eduArray[i]['schoolCity']} disabled={this.state.disabled}/>
+                        <input required type="text" name="schoolCity" id={i} maxLength="30" onChange={this.handleChange} value={this.state.eduArray[i]['schoolCity']} disabled={this.state.disabled}/>
                     </div>
                     <div>
                         <label htmlFor="schoolState">School State</label>
                         <select required name="schoolState" id={i} onChange={this.handleChange} value={this.state.eduArray[i]['schoolState']} disabled={this.state.disabled}>
+                            <option value="" disabled selected>State</option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
@@ -118,16 +119,17 @@ class Education extends Component {
                     </div>
                     <div>
                         <label htmlFor="study">Area of Study</label>
-                        <input required type="text" name="study" id={i} onChange={this.handleChange} value={this.state.eduArray[i]['study']} disabled={this.state.disabled}/>
+                        <input required type="text" name="study" id={i} maxLength="30" onChange={this.handleChange} value={this.state.eduArray[i]['study']} disabled={this.state.disabled}/>
                     </div>
                     <div>
                         <label htmlFor="degree">Degree</label>
-                        <input required type="text" name="degree" id={i} onChange={this.handleChange} value={this.state.eduArray[i]['degree']} disabled={this.state.disabled}/>
+                        <input required type="text" name="degree" id={i} maxLength="30" onChange={this.handleChange} value={this.state.eduArray[i]['degree']} disabled={this.state.disabled}/>
                     </div>
                     <div className="date-container">
                         <div>
                             <label htmlFor="startYear">Start Year</label>
                             <select required name="startYear" id={i} onChange={this.handleChange} value={this.state.eduArray[i]['startYear']} disabled={this.state.disabled}>
+                                <option value="" disabled selected>Year</option>
                                 <option value="1940">1940</option>
                                 <option value="1941">1941</option>
                                 <option value="1942">1942</option>
@@ -293,6 +295,7 @@ class Education extends Component {
                         <div>
                             <label htmlFor="endYear">End Year</label>
                             <select required name="endYear" id={i} onChange={this.handleChange} value={this.state.eduArray[i]['endYear']} disabled={this.state.disabled}>
+                                <option value="" disabled selected>Year</option>
                                 <option value="1940">1940</option>
                                 <option value="1941">1941</option>
                                 <option value="1942">1942</option>
@@ -493,9 +496,9 @@ class Education extends Component {
                 <form onSubmit={(e) => this.submitHandler(e)} id="education"  className="edu-generate">
                     {this.generateInputs()}
                     <div className="submit-row">
-                        <button id="add-btn" type="button" visibility="hidden" style={{visibility: this.state.formCount < 3 ? 'visible' : 'hidden' }} disabled={this.state.disabled} className="left" onClick={this.addExp}>Add Experience</button>
-                        <button type="submit" disabled={this.state.disabled}>Save</button>
-                        <button disabled={!this.state.disabled} onClick={this.edit} type="button">Edit</button>
+                        <button id="add-btn" type="button" visibility="hidden" style={{visibility: this.state.formCount < 3 ? 'visible' : 'hidden' }} disabled={this.state.disabled} className="left" onClick={this.addExp}>Add More...</button>
+                        <button type="submit" disabled={this.state.disabled} className="save">Save</button>
+                        <button disabled={!this.state.disabled} onClick={this.edit} type="button" className="edit">Edit</button>
                         <div className="right"></div>
                     </div>
                 </form>

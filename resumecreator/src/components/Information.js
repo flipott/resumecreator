@@ -52,31 +52,32 @@ class Information extends Component {
                         <fieldset>
                             <div>
                                 <label htmlFor="firstName">First Name</label>
-                                <input required type="text" name="firstName" id="firstName" onChange={this.handleChange} value={this.state.infoArray.firstName} disabled={this.state.disabled}/>
+                                <input required type="text" maxLength="20" name="firstName" id="firstName" onChange={this.handleChange} value={this.state.infoArray.firstName} disabled={this.state.disabled}/>
                             </div>
                             <div>
                                 <label htmlFor="lastName">Last Name</label>
-                                <input required type="text" name="lastName" id="lastName" onChange={this.handleChange} value={this.state.infoArray.lastName} disabled={this.state.disabled} />
+                                <input required type="text" maxLength="20" name="lastName" id="lastName" onChange={this.handleChange} value={this.state.infoArray.lastName} disabled={this.state.disabled} />
                             </div>
                             <div>
                                 <label htmlFor="email">Email</label>
-                                <input required type="email" name="email" id="email" onChange={this.handleChange} value={this.state.infoArray.email} disabled={this.state.disabled}/>
+                                <input required type="email" maxLength="40" name="email" id="email" onChange={this.handleChange} value={this.state.infoArray.email} disabled={this.state.disabled}/>
                             </div>
                             <div>
                                 <label htmlFor="phone">Phone Number</label>
-                                <input required type="tel" name="phone" id="phone" onChange={this.handleChange} value={this.state.infoArray.phone} disabled={this.state.disabled} />
+                                <input required type="tel" maxLength="22" name="phone" id="phone" onChange={this.handleChange} value={this.state.infoArray.phone} disabled={this.state.disabled} />
                             </div>
                             <div>
                                 <label htmlFor="street">Address</label>
-                                <input required type="text" name="street" id="street" onChange={this.handleChange} value={this.state.infoArray.street} disabled={this.state.disabled} />
+                                <input required type="text" maxLength="20" name="street" id="street" onChange={this.handleChange} value={this.state.infoArray.street} disabled={this.state.disabled} />
                             </div>
                             <div>
                                 <label htmlFor="city">City</label>
-                                <input required type="text" name="city" id="city" onChange={this.handleChange} value={this.state.infoArray.city} disabled={this.state.disabled} />
+                                <input required type="text" maxLength="20" name="city" id="city" onChange={this.handleChange} value={this.state.infoArray.city} disabled={this.state.disabled} />
                             </div>
                             <div>
                                 <label htmlFor="state">State</label>
                                 <select required name="state" id="state" onChange={this.handleChange} value={this.state.infoArray.state} disabled={this.state.disabled}>
+                                    <option value="" disabled selected>State</option>
                                     <option value="AL">Alabama</option>
                                     <option value="AK">Alaska</option>
                                     <option value="AZ">Arizona</option>
@@ -132,16 +133,16 @@ class Information extends Component {
                             </div>
                             <div>
                                 <label htmlFor="zip">Zip Code</label>
-                                <input required type="text" name="zip" id="zip" onChange={this.handleChange} value={this.state.infoArray.zip} disabled={this.state.disabled} />
+                                <input required type="text" maxLength="5" name="zip" id="zip" onChange={this.handleChange} value={this.state.infoArray.zip} disabled={this.state.disabled} />
                             </div>
                             <div id="objective-container">
                                 <label htmlFor="objective">Objective</label>
-                                <textarea required name="objective" id="objective" onChange={this.handleChange} value={this.state.infoArray.objective} disabled={this.state.disabled} />
+                                <textarea required maxLength="137" name="objective" id="objective" onChange={this.handleChange} value={this.state.infoArray.objective} disabled={this.state.disabled} />
                             </div>
                     </fieldset>
                     <div className="submit-row">
-                        <button type="submit" disabled={this.state.disabled}>Save</button>
-                        <button disabled={!this.state.disabled} onClick={this.edit} type="button">Edit</button>
+                        <button type="submit" className="save" disabled={this.state.disabled}>Save</button>
+                        <button disabled={!this.state.disabled} onClick={this.edit} className="edit" type="button">Edit</button>
                     </div>
                 </form>
             </div>

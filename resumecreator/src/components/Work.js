@@ -53,15 +53,15 @@ class Work extends Component {
                     <legend>Work {i+1}</legend>
                     <div>
                         <label htmlFor="company">Company</label>
-                        <input required type="text" name="company" id={i} onChange={this.handleChange} value={this.state.workArray[i]['company']} disabled={this.state.disabled}/>
+                        <input required type="text" name="company" maxLength="30" id={i} onChange={this.handleChange} value={this.state.workArray[i]['company']} disabled={this.state.disabled}/>
                     </div>
                     <div>
                         <label htmlFor="position">Position</label>
-                        <input required type="text" name="position" id={i} onChange={this.handleChange} value={this.state.workArray[i]['position']} disabled={this.state.disabled}/>
+                        <input required type="text" maxLength="30" name="position" id={i} onChange={this.handleChange} value={this.state.workArray[i]['position']} disabled={this.state.disabled}/>
                     </div>
                     <div>
                     <label htmlFor="duties">Job Description</label>
-                    <textarea required name="duties" id={i} onChange={this.handleChange} value={this.state.workArray[i]['duties']} disabled={this.state.disabled}/>        
+                    <textarea required name="duties" maxLength="60" id={i} onChange={this.handleChange} value={this.state.workArray[i]['duties']} disabled={this.state.disabled}/>        
                     </div>
                     <div className="date-container">
                         <div>
@@ -108,9 +108,9 @@ class Work extends Component {
                 <form onSubmit={(e) => this.submitHandler(e)} id="work">
                     {this.generateInputs()}
                     <div className="submit-row">
-                        <button id="add-btn" type="button" visibility="hidden" style={{visibility: this.state.formCount < 3 ? 'visible' : 'hidden' }} disabled={this.state.disabled} className="left" onClick={this.addExp}>Add Experience</button>
-                        <button type="submit" disabled={this.state.disabled}>Save</button>
-                        <button disabled={!this.state.disabled} onClick={this.edit} type="button">Edit</button>
+                        <button id="add-btn" type="button" visibility="hidden" style={{visibility: this.state.formCount < 3 ? 'visible' : 'hidden' }} disabled={this.state.disabled} className="left" onClick={this.addExp}>Add More...</button>
+                        <button type="submit" className="save" disabled={this.state.disabled}>Save</button>
+                        <button disabled={!this.state.disabled} onClick={this.edit} type="button" className="edit">Edit</button>
                         <div className="right"></div>
                     </div>
                 </form>
