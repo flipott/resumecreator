@@ -9,4 +9,4 @@ Live page viewable here: https://flipott.github.io/resumecreator/
 - Generate a printable, formatted resume
 
 # Tools Used
-[![My Skills](https://skillicons.dev/icons?i=html,css,react)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=html,css,js,react)](https://skillicons.dev)
